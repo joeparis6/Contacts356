@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/contact_image"
+        android:layout_width="37dp"
+        android:layout_height="80dp"
+
+        android:src="@drawable/ic_contact"/>
+
+    <TextView
+        android:id="@+id/contact_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:text="Contact Name"
+
+        app:layout_constraintBottom_toBottomOf="@id/contact_image"
+        app:layout_constraintStart_toEndOf="@id/contact_image"
+        app:layout_constraintTop_toTopOf="@id/contact_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Contacts</string>
+    <string name="add_group">New Group</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_name">Email</string>
+    <string name="address_name">Address</string>
+    <string name="notes">Contacts</string>
+    <string name="phone_number">Phone</string>
+    <string name="new_contact">Contacts</string>
+    <string name="edit_contact">Contacts</string>
+    <string name="add_menu_item">Contacts</string>
+    <string name="search_menu_item">Contacts</string>
+    <string name="group_name">group name</string>
+    <string name="all_contacts">All Contacts</string>
+    <string name="to_do">To Do</string>
+
+
+</resources>
