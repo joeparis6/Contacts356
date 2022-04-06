@@ -1,5 +1,6 @@
 package android.Contacts3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,10 +50,15 @@ public class AddContactActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), text, duration);
                 toast.show();
                 store.addContact(contact);
+                openContactActivity();
 
             }
         });
-
-
     }
+
+    public void openContactActivity() {
+        Intent intent = new Intent(this, ContactActivity.class);
+        startActivity(intent);
+    }
+
 }
