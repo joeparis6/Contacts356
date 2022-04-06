@@ -23,7 +23,7 @@ public class AddGroupActivity extends AppCompatActivity {
     public ContactGroup group;
     private Button mSubmitButton;
     private TextView mGroupName;
-    private EditText mNewGroup;
+    private EditText mEditName;
 //    private LayoutInflater inflater = Activity.getLayoutInflater();
     //private LayoutInflater inflater = LayoutInflater.from(this);
 
@@ -38,7 +38,7 @@ public class AddGroupActivity extends AppCompatActivity {
             //view = inflater.inflate(R.layout.activity_add_group, null);
 
             mGroupName = (TextView) findViewById(R.id.group_name);
-            mNewGroup = (EditText) findViewById(R.id.group_string);
+            mEditName = (EditText) findViewById(R.id.group_string);
             mSubmitButton = findViewById(R.id.submit_group);
 
             mSubmitButton.setOnClickListener(new View.OnClickListener() {
@@ -48,26 +48,11 @@ public class AddGroupActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Log.d(TAG, "onClick: ");
                     int duration = Toast.LENGTH_SHORT;
-                    CharSequence text = mGroupName.getText().toString()+" group created";
+                    String text = mEditName.getText().toString()+" group created";
                     Toast toast = Toast.makeText(getApplicationContext(), text, duration);
                     toast.show();
-                    store.addGroup(new ContactGroup(mNewGroup.getText().toString()));
+                    store.addGroup(new ContactGroup(mEditName.getText().toString()));
 
-                    //below code used to handle waiting on database?
-                    // Set up a messageHandler that will process messages from the task
-                    // and make updates on the UI thread
-//                    Handler uiThreadMessageHandler = new Handler(Looper.getMainLooper()) {
-//                        @Override
-//                        public void handleMessage(Message message) {
-//                            Bundle bundle = message.getData();
-//                            String RESULT_KEY = "ResultKey";
-//                            int duration = Toast.LENGTH_SHORT;
-//                                CharSequence text = mGroupName.getText().toString()+" group created";
-//                                Toast toast = Toast.makeText(getApplicationContext(), text, duration);
-//                                toast.show();
-//
-//                        }
-//                    };
                 }
             });
         }
