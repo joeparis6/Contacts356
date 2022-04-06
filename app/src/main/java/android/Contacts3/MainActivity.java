@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Button allContactsButton;
     private ContactGroup example;
     private Button other;
+    private TableRow addGroupBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                openAddGroupActivity();
+            }
+        });
+
+        addGroupBar = findViewById(R.id.add_group);
+        addGroupBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 openAddGroupActivity();
             }
         });

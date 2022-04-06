@@ -25,7 +25,7 @@ public class AddGroupActivity extends AppCompatActivity {
     private TextView mGroupName;
     private EditText mNewGroup;
 //    private LayoutInflater inflater = Activity.getLayoutInflater();
-    private LayoutInflater inflater = LayoutInflater.from(this);
+    //private LayoutInflater inflater = LayoutInflater.from(this);
 
 
     @Override
@@ -35,11 +35,11 @@ public class AddGroupActivity extends AppCompatActivity {
             ContactStore store = ContactStore.getInstance();
 
             View view;
-            view = inflater.inflate(R.layout.activity_add_group, null);
+            //view = inflater.inflate(R.layout.activity_add_group, null);
 
-            mGroupName = (TextView) view.findViewById(R.id.group_name);
-            mNewGroup = (EditText) view.findViewById(R.id.group_string);
-            mSubmitButton = view.findViewById(R.id.submit_group);
+            mGroupName = (TextView) findViewById(R.id.group_name);
+            mNewGroup = (EditText) findViewById(R.id.group_string);
+            mSubmitButton = findViewById(R.id.submit_group);
 
             mSubmitButton.setOnClickListener(new View.OnClickListener() {
                 final String TAG = "Add group button listener";
