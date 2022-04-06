@@ -53,6 +53,7 @@ public class AddGroupActivity extends AppCompatActivity {
                     toast.show();
                     store.addGroup(new ContactGroup(mNewGroup.getText().toString()));
 
+                    //below code used to handle waiting on database?
                     // Set up a messageHandler that will process messages from the task
                     // and make updates on the UI thread
 //                    Handler uiThreadMessageHandler = new Handler(Looper.getMainLooper()) {
