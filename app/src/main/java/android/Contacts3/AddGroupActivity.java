@@ -20,12 +20,10 @@ import android.widget.Toast;
 public class AddGroupActivity extends AppCompatActivity {
 
     // activity for adding a single group
-    public ContactGroup group;
-    private Button mSubmitButton;
-    private TextView mGroupName;
+
+    private Button mSubmit;
     private EditText mEditName;
-//    private LayoutInflater inflater = Activity.getLayoutInflater();
-    //private LayoutInflater inflater = LayoutInflater.from(this);
+
 
 
     @Override
@@ -34,14 +32,11 @@ public class AddGroupActivity extends AppCompatActivity {
             setContentView(R.layout.activity_add_group);
             ContactStore store = ContactStore.getInstance();
 
-            View view;
-            //view = inflater.inflate(R.layout.activity_add_group, null);
 
-            mGroupName = (TextView) findViewById(R.id.group_name);
             mEditName = (EditText) findViewById(R.id.group_string);
-            mSubmitButton = findViewById(R.id.submit_group);
+            mSubmit = findViewById(R.id.submit_group);
 
-            mSubmitButton.setOnClickListener(new View.OnClickListener() {
+            mSubmit.setOnClickListener(new View.OnClickListener() {
                 final String TAG = "Add group button listener";
 
                 @Override
