@@ -21,7 +21,7 @@
         android:layout_below="@id/new_group">
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="284dp"
             android:layout_height="wrap_content">
 
 
@@ -32,9 +32,17 @@
                 android:text="@string/group_name" />
 
             <EditText
-                android:layout_width="334dp"
+                android:id="@+id/group_string"
+                android:layout_width="222dp"
+                android:layout_height="48dp"
+                android:inputType="text"
+                android:text="name" />
+
+            <Button
+                android:id="@+id/submit_group"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:text="Button" />
 
         </TableRow>
 
