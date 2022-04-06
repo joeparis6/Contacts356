@@ -32,14 +32,6 @@ public class AddContactActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.edit_email);
         mSubmit = findViewById(R.id.add_contact);
 
-        Contact contact = new Contact(first_name.getText().toString(), last_name.getText().toString(),
-                phone_number.getText().toString());
-
-        /* Check if email slot has entry */
-        if (email.getText().toString().length() > 1) {
-            contact.setEmail(email.getText().toString());
-        }
-
         mSubmit.setOnClickListener(new View.OnClickListener() {
             final String TAG = "Add contact button listener";
             @Override
@@ -49,15 +41,23 @@ public class AddContactActivity extends AppCompatActivity {
                 String text = "Contact Added";
                 Toast toast = Toast.makeText(getApplicationContext(), text, duration);
                 toast.show();
+
+                Contact contact = new Contact(first_name.getText().toString(), last_name.getText().toString(),
+                        phone_number.getText().toString());
+                /* Check if email slot has entry */
+                if (email.getText().toString().length() > 1) {
+                    contact.setEmail(email.getText().toString());
+                }
+
                 store.addContact(contact);
-                openContactActivity();
+                openAllContactsActivity();
 
             }
         });
     }
 
-    public void openContactActivity() {
-        Intent intent = new Intent(this, ContactActivity.class);
+    public void openAllContactsActivity() {
+        Intent intent = new Intent(this, AllContactsActivity.class);
         startActivity(intent);
     }
 
