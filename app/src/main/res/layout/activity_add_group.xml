@@ -17,16 +17,8 @@
             android:background="#EFECEC"
             android:orientation="horizontal">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                app:srcCompat="@android:drawable/ic_menu_revert" />
-
             <Space
-                android:layout_width="50dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
@@ -40,7 +32,7 @@
             </TextView>
 
             <Space
-                android:layout_width="50dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
