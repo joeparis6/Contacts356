@@ -31,7 +31,7 @@ public class AddGroupActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_add_group);
-            /*add up button*/
+
             // calling the action bar
             ActionBar actionBar = getSupportActionBar();
             // showing the back button in action bar

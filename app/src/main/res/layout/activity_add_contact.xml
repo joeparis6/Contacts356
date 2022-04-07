@@ -9,34 +9,38 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#EFECEC"
+            android:orientation="horizontal">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
+            <TextView
+                android:id="@+id/new_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Contact"
+                android:textSize="24dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+            </TextView>
 
-                    <TextView
-                        android:id="@+id/new_contact"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="New Contact"
-                        android:textSize="24dp">
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
 
-                    </TextView>
-
-                </LinearLayout>
-
-            </TableRow>
-
-        </TableLayout>
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="122dp"
+            android:background="#EFECEC"
+            app:srcCompat="@drawable/ic_contact" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -63,7 +67,18 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:background="#EFECEC">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:background="#EFECEC" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
 
                 <TextView
@@ -82,7 +97,18 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:background="#EFECEC">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:background="#EFECEC" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
 
                 <TextView
@@ -97,6 +123,17 @@
                     android:layout_height="wrap_content"
                     android:inputType="text" />
 
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#EFECEC">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:background="#EFECEC" />
             </TableRow>
 
             <TableRow
@@ -122,6 +159,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#EFECEC"
             android:orientation="horizontal">
 
             <Space
