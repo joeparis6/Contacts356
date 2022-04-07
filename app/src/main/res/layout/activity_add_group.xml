@@ -6,46 +6,111 @@
     android:layout_height="match_parent"
     tools:context=".AddGroupActivity">
 
-    <TextView
-        android:id="@+id/new_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Group"
-        android:textSize="24dp">
-
-    </TextView>
-
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/new_group">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TableRow
-            android:layout_width="284dp"
-            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EFECEC"
+            android:orientation="horizontal">
 
-
-            <TextView
-                android:id="@+id/group_name"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/group_name" />
+                android:layout_weight="1"
+                android:clickable="true"
+                app:srcCompat="@android:drawable/ic_menu_revert" />
 
-            <EditText
-                android:id="@+id/group_string"
-                android:layout_width="222dp"
-                android:layout_height="48dp"
-                android:hint="Name"
-                android:inputType="text" />
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/new_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Group"
+                android:textSize="24dp">
+
+            </TextView>
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/submit_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Done" />
 
-        </TableRow>
+        </LinearLayout>
 
-    </TableLayout>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="122dp"
+            android:background="#EFECEC"
+            app:srcCompat="@drawable/ic_contact_group" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/group_string"
+                        android:layout_width="395dp"
+                        android:layout_height="48dp"
+                        android:hint="Group Name"
+                        android:inputType="text" />
+
+                    <EditText
+                        android:id="@+id/notes_string"
+                        android:layout_width="match_parent"
+                        android:layout_height="147dp"
+                        android:ems="10"
+                        android:gravity="start|top"
+                        android:hint="Notes"
+                        android:inputType="textMultiLine" />
+
+                </LinearLayout>
+
+            </TableRow>
+
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#EFECEC"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
