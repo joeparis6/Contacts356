@@ -15,6 +15,7 @@ import java.util.List;
 public class GroupActivity extends AppCompatActivity {
 
     public List<Contact> contacts;
+    TextView groupName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,12 @@ public class GroupActivity extends AppCompatActivity {
         ContactStore store = ContactStore.getInstance();
 
         contacts = store.getSelectedGroup().getMembers();
+        ContactGroup group = store.getSelectedGroup();
+
+        groupName = findViewById(R.id.group_name);
+        Contact contact = store.getSelectedContact();
+        groupName.setText(group.getName());
+
 
         RecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(GroupActivity.this));

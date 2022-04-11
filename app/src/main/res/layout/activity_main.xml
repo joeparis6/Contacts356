@@ -9,14 +9,15 @@
 
     <Button
         android:id="@+id/to_do_button"
-        android:layout_width="wrap_content"
+        android:layout_width="198dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
         android:layout_toRightOf="@id/all_contacts_button"
         android:text="My Plans"></Button>
 
     <Button
         android:id="@+id/all_contacts_button"
-        android:layout_width="wrap_content"
+        android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:text="@string/all_contacts"></Button>
 
