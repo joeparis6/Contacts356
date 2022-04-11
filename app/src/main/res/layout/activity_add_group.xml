@@ -36,12 +36,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/submit_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Done" />
-
         </LinearLayout>
 
         <ImageView
@@ -97,6 +91,12 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/submit_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="save" />
 
             <Space
                 android:layout_width="50dp"
