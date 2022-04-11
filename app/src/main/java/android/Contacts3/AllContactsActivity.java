@@ -1,11 +1,14 @@
 package android.Contacts3;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +35,7 @@ public class AllContactsActivity extends AppCompatActivity {
 
     }
 
+    /*
     public static class ContactAdapter extends RecyclerView.Adapter<AllContactsActivity.ContactAdapter.ViewHolder> {
 
         private List<Contact> localDataSet;
@@ -39,10 +43,7 @@ public class AllContactsActivity extends AppCompatActivity {
             localDataSet = contacts;
         }
 
-        /**
-         * Provide a reference to the type of views that you are using
-         * (custom ViewHolder).
-         */
+
         public static class ViewHolder extends RecyclerView.ViewHolder {
             private final TextView textView;
 
@@ -92,5 +93,77 @@ public class AllContactsActivity extends AppCompatActivity {
         public int getItemCount() {
             return localDataSet.size();
         }
+    }
+    */
+    ////////////
+    private class ContactAdapter extends RecyclerView.Adapter<AllContactsActivity.contactViewHolder> {
+        private List<Contact> localDataSet;
+        public ContactAdapter(List<Contact> contacts) {
+            localDataSet = contacts;
+        }
+        private Contact contact;
+
+
+        @NonNull
+        @Override
+        public AllContactsActivity.contactViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view;
+            view = getLayoutInflater().inflate(R.layout.single_contact, parent, false);
+
+            return new AllContactsActivity.contactViewHolder(view, viewType);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull AllContactsActivity.contactViewHolder holder, int position) {
+            holder.bind(localDataSet.get(position));
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return localDataSet.size();
+        }
+    }
+
+    private class contactViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        private Contact contact;
+        private TextView contactName;
+
+        public contactViewHolder(@NonNull View view, int viewType) {
+
+            super(view);
+
+            itemView.setOnClickListener(this);
+            contactName = itemView.findViewById(R.id.contact_name);
+
+        }
+
+        private void bind(Contact contact) {
+            this.contact = contact;
+            Log.d("Contact: ",  contact.getFirstName());
+            if (contact.getFirstName() != null && contact.getLastName() != null) {
+                contactName.setText(contact.getFirstName() + " " + contact.getLastName());
+            }
+            else {
+                contactName.setText(contact.getFirstName());
+            }
+
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            ContactStore store = ContactStore.getInstance();
+
+            store.setSelectedContact(contact);
+            openContactActivity();
+        }
+    }
+
+    public void openContactActivity() {
+        Intent intent = new Intent(this, ContactActivity.class);
+
+        startActivity(intent);
     }
 }

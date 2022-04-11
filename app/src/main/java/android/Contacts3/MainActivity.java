@@ -19,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.security.acl.Group;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private Button todoButton;
     private Button allContactsButton;
     private ContactGroup example;
-    private Button other;
+    
     private TableRow addGroupBar;
 
     @Override
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
-        CustomAdapter adapter = new CustomAdapter(groups);
+        GroupAdapter adapter = new GroupAdapter(groups);
         recyclerView.setAdapter(adapter);
         allContactsButton = findViewById(R.id.all_contacts_button);
         allContactsButton.setOnClickListener(new View.OnClickListener() {
@@ -64,14 +66,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        other = findViewById(R.id.other_button);
-        other.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                openAddGroupActivity();
-            }
-        });
 
         addGroupBar = findViewById(R.id.add_group);
         addGroupBar.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +77,69 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //////////////////////////
+
+    private class GroupAdapter extends RecyclerView.Adapter<GroupViewHolder> {
+        private List<ContactGroup> localDataSet;
+        public GroupAdapter(List<ContactGroup> groups) {
+            localDataSet = groups;
+        }
+        private ContactGroup group;
+
+
+        @NonNull
+        @Override
+        public GroupViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view;
+            view = getLayoutInflater().inflate(R.layout.contact_group, parent, false);
+
+            return new GroupViewHolder(view, viewType);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull GroupViewHolder holder, int position) {
+            holder.bind(localDataSet.get(position));
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return localDataSet.size();
+        }
+    }
+
+    private class GroupViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        private ContactGroup group;
+        private TextView groupName;
+
+        public GroupViewHolder(@NonNull View view, int viewType) {
+
+            super(view);
+
+            itemView.setOnClickListener(this);
+            groupName = itemView.findViewById(R.id.group_name);
+
+        }
+
+        private void bind(ContactGroup group) {
+            this.group = group;
+            groupName.setText(group.getName());
+
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            ContactStore store = ContactStore.getInstance();
+
+            store.setSelectedGroup(group);
+            openGroupActivity();
+        }
+    }
+
+
+    ///////////////////////////
     public void openAllContactsActivity() {
         Intent intent = new Intent(this, AllContactsActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -95,19 +152,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    /*
     public static class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
         private List<ContactGroup> localDataSet;
         public CustomAdapter(List<ContactGroup> groups) {
             localDataSet = groups;
         }
+        private ContactGroup group;
 
-        /**
-         * Provide a reference to the type of views that you are using
-         * (custom ViewHolder).
-         */
-        public static class ViewHolder extends RecyclerView.ViewHolder {
+
+
+        public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
             private final TextView textView;
 
             public ViewHolder(View view) {
@@ -117,11 +173,13 @@ public class MainActivity extends AppCompatActivity {
                 textView = (TextView) view.findViewById(R.id.group_name);
 
 
+
             }
 
             public TextView getTextView() {
                 return textView;
             }
+
         }
 
 
@@ -145,6 +203,8 @@ public class MainActivity extends AppCompatActivity {
 
 
             viewHolder.getTextView().setText(localDataSet.get(position).getName());
+            group = localDataSet.get(position);
+
         }
 
         // Return the size of your dataset (invoked by the layout manager)
@@ -152,7 +212,10 @@ public class MainActivity extends AppCompatActivity {
         public int getItemCount() {
             return localDataSet.size();
         }
+
+
     }
+    */
 
 
 

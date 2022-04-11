@@ -6,24 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".GroupActivity">
 
-    <TableRow
+    <LinearLayout
         android:layout_width="match_parent"
+        android:id="@+id/Header"
         android:layout_height="wrap_content"
+        android:background="#EFECEC"
+        android:orientation="horizontal">
 
-        android:id="@+id/add_group">
-
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <TextView
+            android:id="@+id/group_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Family"
-            android:textSize="32dp" />
-    </TableRow>
+            android:textSize="24dp">
+
+        </TextView>
+
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_below="@id/Header"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        android:background="#EFECEC"
+        app:srcCompat="@drawable/ic_contact_group" />
+
+
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/add_group"
+        android:layout_below="@id/imageView2"
         >
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"

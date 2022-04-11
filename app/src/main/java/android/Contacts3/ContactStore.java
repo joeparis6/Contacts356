@@ -1,6 +1,7 @@
 package android.Contacts3;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -12,6 +13,7 @@ public class ContactStore {
 
     private List<Contact> allContacts;
     private List<ContactGroup> allGroups;
+    private List<String> allPlans;
     private Contact selectedContact;
     private ContactGroup selectedGroup;
 
@@ -25,9 +27,12 @@ public class ContactStore {
 
 
     public ContactStore() {
+        this.allPlans = new ArrayList<String>();
         this.allContacts = new ArrayList<Contact>();
         this.allGroups = new ArrayList<ContactGroup>() {
         };
+
+
 
         Contact contact1 = new Contact("Mom");
         Contact contact2 = new Contact("Dad");
@@ -92,6 +97,10 @@ public class ContactStore {
         allGroups.add(group8);
         allGroups.add(group9);
 
+        allPlans.add("Call the bishop");
+        allPlans.add("Schedule a business lunch with Diane");
+        allPlans.add("Organize family barbecue");
+
         group1.addContact(contact4);
         group1.addContact(contact6);
         group1.addContact(contact5);
@@ -108,6 +117,7 @@ public class ContactStore {
     }
 
     public ArrayList<ContactGroup> getAllGroups() {
+
         return (ArrayList<ContactGroup>) allGroups;
     }
 
@@ -133,6 +143,14 @@ public class ContactStore {
 
     public ContactGroup getSelectedGroup() {
         return selectedGroup;
+    }
+
+    public void addPlan(String plan) {
+        allPlans.add(plan);
+    }
+
+    public ArrayList<String> getAllPlans() {
+        return (ArrayList<String>) allPlans;
     }
 
 
