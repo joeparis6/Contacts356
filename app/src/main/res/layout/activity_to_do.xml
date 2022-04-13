@@ -22,17 +22,27 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/to_do"
         android:background="#cccccc"
         android:foregroundTint="@color/cardview_light_background"
         />
 
+    <Button
+        android:id="@id/add_plan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/plan_input"
+        android:layout_centerHorizontal="true"
+        android:text="Add Plan"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_below="@+id/plan_input"
+        android:layout_below="@+id/add_plan"
 
         android:layout_marginTop="12dp"
         >

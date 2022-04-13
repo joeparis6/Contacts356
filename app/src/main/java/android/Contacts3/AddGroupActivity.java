@@ -1,5 +1,6 @@
 package android.Contacts3;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +11,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,34 +30,44 @@ public class AddGroupActivity extends AppCompatActivity {
 
 
     @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_add_group);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_group);
 
-            // calling the action bar
-            ActionBar actionBar = getSupportActionBar();
-            // showing the back button in action bar
-            actionBar.setDisplayHomeAsUpEnabled(true);
+        // calling the action bar
+        ActionBar actionBar = getSupportActionBar();
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
-            ContactStore store = ContactStore.getInstance();
+        ContactStore store = ContactStore.getInstance();
 
 
-            mEditName = (EditText) findViewById(R.id.group_string);
-            mSubmit = findViewById(R.id.submit_group);
+        mEditName = (EditText) findViewById(R.id.group_string);
+        mSubmit = findViewById(R.id.submit_group);
 
-            mSubmit.setOnClickListener(new View.OnClickListener() {
-                final String TAG = "Add group button listener";
+        mSubmit.setOnClickListener(new View.OnClickListener() {
+            final String TAG = "Add group button listener";
 
-                @Override
-                public void onClick(View view) {
-                    Log.d(TAG, "onClick: ");
-                    int duration = Toast.LENGTH_SHORT;
-                    String text = mEditName.getText().toString()+" group created";
-                    Toast toast = Toast.makeText(getApplicationContext(), text, duration);
-                    toast.show();
-                    store.addGroup(new ContactGroup(mEditName.getText().toString()));
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: ");
+                int duration = Toast.LENGTH_SHORT;
+                String text = mEditName.getText().toString()+" group created";
+                Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+                toast.show();
+                store.addGroup(new ContactGroup(mEditName.getText().toString()));
 
-                }
-            });
+            }
+        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
         }
+        return super.onOptionsItemSelected(item);
+    }
 }

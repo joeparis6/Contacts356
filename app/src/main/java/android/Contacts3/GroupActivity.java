@@ -18,15 +18,27 @@ import java.util.List;
 public class GroupActivity extends AppCompatActivity {
 
     public List<Contact> contacts;
+    TextView groupName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
 
+        ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         ContactStore store = ContactStore.getInstance();
 
         contacts = store.getSelectedGroup().getMembers();
+        ContactGroup group = store.getSelectedGroup();
+
+        groupName = findViewById(R.id.group_name);
+        Contact contact = store.getSelectedContact();
+        groupName.setText(group.getName());
+
 
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();

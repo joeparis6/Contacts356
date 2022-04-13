@@ -97,9 +97,9 @@ public class ContactStore {
         allGroups.add(group8);
         allGroups.add(group9);
 
-        allPlans.add("Call the bishop");
-        allPlans.add("Schedule a business lunch with Diane");
-        allPlans.add("Organize family barbecue");
+        allPlans.add("- Call the bishop");
+        allPlans.add("- Schedule a business lunch with Diane");
+        allPlans.add("- Organize family barbecue");
 
         group1.addContact(contact4);
         group1.addContact(contact6);

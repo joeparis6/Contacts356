@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/individual_contact_name"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24dp"
@@ -15,19 +16,38 @@
 
         />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_below="@id/individual_contact_name"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        android:background="#EFECEC"
+        app:srcCompat="@drawable/ic_contact" />
+
     <TextView
         android:id="@+id/individual_contact_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:text="801 489 5252"
-        android:layout_below="@id/individual_contact_name"
+        android:layout_below="@id/imageView4"
         />
 
     <TextView
         android:id="@+id/individual_contact_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:text="harryj@gmail.com"
         android:layout_below="@id/individual_contact_number"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/add_to_group"
+        android:layout_below="@id/individual_contact_email"
+        android:text="Add to Group"
         />
 </RelativeLayout>
